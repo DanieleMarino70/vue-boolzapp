@@ -86,14 +86,14 @@
 						<div class="row">
 	
 							<!-- ciclare le colonne da fare -->
-							<div class="col-12 p-2">
+							<div class="col-12 p-2" v-for="contact in contacts">
 								<div class="flex-container d-flex justify-content-between">
 									<div class="user-profile d-flex">
 										<div class="circle-img">
-											<img src="./img/avatar_1.jpg" alt="" class="img-fluid">
+											<img :src="'./img/avatar' + contact.avatar + '.jpg'" alt="" class="img-fluid">
 										</div>
 										<div class="profile-text">
-											<div class="name">Michele</div>
+											<div class="name">{{contact.name}}</div>
 											<div class="last-message">Ultimo messaggio inviato</div>
 										</div>
 									</div>
@@ -104,186 +104,6 @@
 								</div>	
 							</div>
 	
-							<div class="col-12 p-2">
-								<div class="flex-container d-flex justify-content-between">
-									<div class="user-profile d-flex">
-										<div class="circle-img">
-											<img src="./img/avatar_1.jpg" alt="" class="img-fluid">
-										</div>
-										<div class="profile-text">
-											<div class="name">Michele</div>
-											<div class="last-message">Ultimo messaggio inviato</div>
-										</div>
-									</div>
-							
-									<div class="last-seen-profile">
-										12:00
-									</div>
-								</div>
-							</div>
-							
-							<div class="col-12 p-2">
-								<div class="flex-container d-flex justify-content-between">
-									<div class="user-profile d-flex">
-										<div class="circle-img">
-											<img src="./img/avatar_1.jpg" alt="" class="img-fluid">
-										</div>
-										<div class="profile-text">
-											<div class="name">Michele</div>
-											<div class="last-message">Ultimo messaggio inviato</div>
-										</div>
-									</div>
-							
-									<div class="last-seen-profile">
-										12:00
-									</div>
-								</div>
-							</div>
-
-							<div class="col-12 p-2">
-								<div class="flex-container d-flex justify-content-between">
-									<div class="user-profile d-flex">
-										<div class="circle-img">
-											<img src="./img/avatar_1.jpg" alt="" class="img-fluid">
-										</div>
-										<div class="profile-text">
-											<div class="name">Michele</div>
-											<div class="last-message">Ultimo messaggio inviato</div>
-										</div>
-									</div>
-							
-									<div class="last-seen-profile">
-										12:00
-									</div>
-								</div>
-							</div>
-
-							<div class="col-12 p-2">
-								<div class="flex-container d-flex justify-content-between">
-									<div class="user-profile d-flex">
-										<div class="circle-img">
-											<img src="./img/avatar_1.jpg" alt="" class="img-fluid">
-										</div>
-										<div class="profile-text">
-											<div class="name">Michele</div>
-											<div class="last-message">Ultimo messaggio inviato</div>
-										</div>
-									</div>
-							
-									<div class="last-seen-profile">
-										12:00
-									</div>
-								</div>
-							</div>
-
-							<div class="col-12 p-2">
-								<div class="flex-container d-flex justify-content-between">
-									<div class="user-profile d-flex">
-										<div class="circle-img">
-											<img src="./img/avatar_1.jpg" alt="" class="img-fluid">
-										</div>
-										<div class="profile-text">
-											<div class="name">Michele</div>
-											<div class="last-message">Ultimo messaggio inviato</div>
-										</div>
-									</div>
-							
-									<div class="last-seen-profile">
-										12:00
-									</div>
-								</div>
-							</div>
-
-							<div class="col-12 p-2">
-								<div class="flex-container d-flex justify-content-between">
-									<div class="user-profile d-flex">
-										<div class="circle-img">
-											<img src="./img/avatar_1.jpg" alt="" class="img-fluid">
-										</div>
-										<div class="profile-text">
-											<div class="name">Michele</div>
-											<div class="last-message">Ultimo messaggio inviato</div>
-										</div>
-									</div>
-							
-									<div class="last-seen-profile">
-										12:00
-									</div>
-								</div>
-							</div>
-
-							<div class="col-12 p-2">
-								<div class="flex-container d-flex justify-content-between">
-									<div class="user-profile d-flex">
-										<div class="circle-img">
-											<img src="./img/avatar_1.jpg" alt="" class="img-fluid">
-										</div>
-										<div class="profile-text">
-											<div class="name">Michele</div>
-											<div class="last-message">Ultimo messaggio inviato</div>
-										</div>
-									</div>
-							
-									<div class="last-seen-profile">
-										12:00
-									</div>
-								</div>
-							</div>
-
-							<div class="col-12 p-2">
-								<div class="flex-container d-flex justify-content-between">
-									<div class="user-profile d-flex">
-										<div class="circle-img">
-											<img src="./img/avatar_1.jpg" alt="" class="img-fluid">
-										</div>
-										<div class="profile-text">
-											<div class="name">Michele</div>
-											<div class="last-message">Ultimo messaggio inviato</div>
-										</div>
-									</div>
-							
-									<div class="last-seen-profile">
-										12:00
-									</div>
-								</div>
-							</div>
-
-							<div class="col-12 p-2">
-								<div class="flex-container d-flex justify-content-between">
-									<div class="user-profile d-flex">
-										<div class="circle-img">
-											<img src="./img/avatar_1.jpg" alt="" class="img-fluid">
-										</div>
-										<div class="profile-text">
-											<div class="name">Michele</div>
-											<div class="last-message">Ultimo messaggio inviato</div>
-										</div>
-									</div>
-							
-									<div class="last-seen-profile">
-										12:00
-									</div>
-								</div>
-							</div>
-
-							<div class="col-12 p-2">
-								<div class="flex-container d-flex justify-content-between">
-									<div class="user-profile d-flex">
-										<div class="circle-img">
-											<img src="./img/avatar_1.jpg" alt="" class="img-fluid">
-										</div>
-										<div class="profile-text">
-											<div class="name">Michele</div>
-											<div class="last-message">Ultimo messaggio inviato</div>
-										</div>
-									</div>
-							
-									<div class="last-seen-hour">
-										12:00
-									</div>
-								</div>
-							</div>
-
 						</div>
 					</div>
 				</div>
