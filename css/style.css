@@ -1,0 +1,45 @@
+
+/* TOOLS DEBUG */
+.debug{
+	border: 2px dashed red;
+}
+
+
+/* GENERAL */
+aside {
+	width: 40%;
+}
+
+main{
+	width: 60%;
+}
+
+
+/* UTILS */
+.name{
+	font-weight: bold;
+}
+
+.circle-img{
+	display: block;
+	overflow: hidden;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+}
+
+
+
+
+
+/* CUSTOM CSS */
+
+.logged-user{
+	min-height: 50px;
+	background-color: lightgray;
+}
+
+.logged-user-commands > *{
+	padding: 0 10px;
+	font-size: 1.2rem;
+}
