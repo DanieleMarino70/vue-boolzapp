@@ -37,6 +37,8 @@ main{
 
 
 /* CUSTOM CSS */
+
+/* HEIGHTS */
 .boolzapp{
 	height: 700px;
 }
@@ -45,15 +47,28 @@ main{
 	height: 200px;
 }
 
-/* aside header + main header */
+.main-content{
+	height: calc(100% - 70px - 70px );
+}
+
+/* aside header + main header + main footer  heights*/
 .logged-user,
-.main-header{
+.main-header,
+.main-footer{
+	height: 70px;
 	padding: 10px;
 	background-color: #eaeaea;
 }
 
+
+
+
+
+
 .logged-user-commands > *,
-.user-chosen-commands > *{
+.user-chosen-commands > *,
+.emoji-group,
+.vocal{
 	padding: 0 10px;
 	font-size: 1.2rem;
 }
