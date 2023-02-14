@@ -41,6 +41,8 @@
 			<aside>
 				<!-- aside header che contiene la prima (userlogged), la seconda(notifications) e la terza barra(search includes) -->
 				<div class="aside-header debug">
+
+					<!-- prima barra logged-user -->
 					<div class="logged-user d-flex justify-content-between">
 						<div class="logged-user-info d-flex align-items-center">
 							<div class="circle-img">
@@ -55,6 +57,30 @@
 							<a href=""><i class="fa-solid fa-ellipsis-vertical"></i></a>
 						</div>
 					</div>
+
+					<!-- seconda barra notifications -->
+					<div class="notifications d-flex align-items-center">
+						<div class="circle-img notification d-flex align-items-center justify-content-center">
+							<a href=""><i class="fa-solid fa-bell-slash"></i></a>
+						</div>
+						<div class="notifications-text d-flex flex-column">
+							<div>Ricevi notifiche di nuovi messaggi</div>
+							<div>Attiva notifiche desktop</div>
+						</div>
+
+					</div>
+
+
+					<!-- terza barra search bar (includes)-->
+					<div class="search-bar">
+						<div class="input-group flex-nowrap p-2">
+							<span class="input-group-text" id="addon-wrapping"><a href=""><i class="fa-solid fa-magnifying-glass"></i></a></span>
+							<input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Search"
+								aria-describedby="addon-wrapping">
+						</div>
+					</div>
+
+
 	
 				</div>
 			</aside>

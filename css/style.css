@@ -28,6 +28,12 @@ main{
 	border-radius: 50%;
 }
 
+.circle-img.notification {
+	width: 50px;
+	height: 50px;
+	background-color: aliceblue;
+}
+
 
 
 
@@ -36,10 +42,15 @@ main{
 
 .logged-user{
 	min-height: 50px;
-	background-color: lightgray;
+	background-color: #eaeaea;
 }
 
 .logged-user-commands > *{
 	padding: 0 10px;
 	font-size: 1.2rem;
+}
+
+.notifications{
+	background-color: #8edafc;
+	padding: 0.6rem;
 }
