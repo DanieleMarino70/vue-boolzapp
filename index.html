@@ -36,7 +36,7 @@
 
 <body>
 	<div class="root pt-5 container">
-		<div class="boolzapp d-flex">
+		<div class="boolzapp d-flex debug">
 			<!-- pezzo di sinistra -->
 			<aside>
 				<!-- aside header che contiene la prima (userlogged), la seconda(notifications) e la terza barra(search includes) -->
@@ -278,7 +278,7 @@
 										</div>
 									</div>
 							
-									<div class="last-seen-profile">
+									<div class="last-seen-hour">
 										12:00
 									</div>
 								</div>
@@ -291,7 +291,26 @@
 	
 	
 			<main>
-	
+				<div class="main-header d-flex justify-content-between debug">
+					<div class="user-profile-chosen d-flex align-items-center">
+						<div class="circle-img">
+							<img src="./img/avatar_1.jpg" alt="" class="img-fluid">
+						</div>
+						<div class="user-chosen-text">
+							<div class="name">Michele</div>
+							<div class="last-access">Ultimo accesso oggi alle 12:00</div>
+						</div>
+					</div>
+
+					<div class="user-chosen-commands d-flex align-items-center">
+						<a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+						<a href=""><i class="fa-solid fa-paperclip"></i></a>
+						<a href=""><i class="fa-solid fa-ellipsis-vertical"></i></a>
+					</div>
+				</div>
+
+
+				
 			</main>
 		</div>
 	</div>

@@ -45,13 +45,15 @@ main{
 	height: 200px;
 }
 
-
-.logged-user{
+/* aside header + main header */
+.logged-user,
+.main-header{
 	padding: 10px;
 	background-color: #eaeaea;
 }
 
-.logged-user-commands > *{
+.logged-user-commands > *,
+.user-chosen-commands > *{
 	padding: 0 10px;
 	font-size: 1.2rem;
 }
