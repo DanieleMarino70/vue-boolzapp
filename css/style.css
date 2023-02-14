@@ -1,9 +1,12 @@
+/* RESET */
+ul, ol{
+	list-style: none;
+}
 
 /* TOOLS DEBUG */
 .debug{
 	border: 2px dashed red;
 }
-
 
 /* GENERAL */
 aside {
@@ -47,7 +50,14 @@ main{
 	height: 200px;
 }
 
+.aside-profiles {
+	height: calc(100% - 200px);
+	overflow: auto;
+}
+
 .main-content{
+	overflow: auto;
+	background-image: url("../img/mine.jpg");
 	height: calc(100% - 70px - 70px );
 }
 
@@ -78,10 +88,27 @@ main{
 	padding: 0.6rem;
 }
 
+.message-box{
+	position: relative;
+	width: fit-content;
+	max-width: 50%;
+	padding: 10px 10px;
+	margin: 10px 0;
+	border-radius: 8px;
+}
 
+.time{
+	position: absolute;
+	font-size: 0.5rem;
+	bottom: 0;
+	right: 5px;
+}
 
+.message-box.sent{
+	margin-left: auto;
+	background-color: #d5f9ba;
+}
 
-.aside-profiles{
-	height: calc(100% - 200px);
-	overflow: auto;
+.message-box.received {
+	background-color: white;
 }
