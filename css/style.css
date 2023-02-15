@@ -1,3 +1,16 @@
+:root {
+	/* # BACKGROUNDS */
+
+	/* * LINEAR GRADIENT BODY */
+	--primary-main-bg: #00a884;
+	--secondary-main-bg--start: #e3e1dc;
+	--secondary-main-bg--end: #d1d7db;
+	--main-bg: linear-gradient(to bottom,
+			var(--primary-main-bg) 0px,
+			var(--primary-main-bg) 15vh,
+			var(--secondary-main-bg--start) 15vh,
+			var(--secondary-main-bg--end) 100vh);
+}
 /* RESET */
 ul, ol{
 	list-style: none;
@@ -9,6 +22,10 @@ ul, ol{
 }
 
 /* GENERAL */
+body{
+	height: 100vh;
+	background-image: var(--main-bg);
+}
 aside {
 	width: 40%;
 }
@@ -17,7 +34,7 @@ main{
 	width: 60%;
 }
 
-
+/** CUSTOM CSS **/
 /* UTILS */
 .name{
 	font-weight: bold;
@@ -31,19 +48,41 @@ main{
 	border-radius: 50%;
 }
 
+/* COLORS */
 .circle-img.notification {
 	background-color: aliceblue;
 }
 
+.bell{
+	color: #8edafc;;
+}
 
+.logged-user-commands a,
+.user-chosen-commands a,
+.last-access,
+.last-message,
+.last-message-date,
+.glass{
+	color: #b1b1b1;
+}
 
+.bell-text{
+	color: grey;
+}
 
+.aside-header,
+.main-header,
+.main-footer {
+	background-color: #eaeaea;
+}
 
-/* CUSTOM CSS */
+.aside-profiles{
+	background-color: white;
+}
 
-/* HEIGHTS */
+/*  HEIGHTS */
 .boolzapp{
-	height: 700px;
+	height: 90vh;
 }
 
 .aside-header{
@@ -67,13 +106,9 @@ main{
 .main-footer{
 	height: 70px;
 	padding: 10px;
-	background-color: #eaeaea;
 }
 
-
-
-
-
+/* --------------------- */
 
 .logged-user-commands > *,
 .user-chosen-commands > *,
