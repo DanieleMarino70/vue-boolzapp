@@ -152,3 +152,7 @@ main{
 .aside-profiles > .container > .row > .col-12:hover{
 	background-color: #e9ebeb;
 }
+
+.aside-profiles>.container>.row>.col-12.active {
+	background-color: #e9ebeb;
+}

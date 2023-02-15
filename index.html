@@ -86,7 +86,7 @@
 						<div class="row">
 	
 							<!-- ciclare le colonne da fare -->
-							<div class="col-12 border-bottom" v-for="contact in contacts">
+							<div class="col-12 border-bottom" v-for="(contact, index) in contacts" @click="userSelected(index)" :class="(activeUser == index) ? 'active': ''">
 								<div class="flex-container pt-2 pb-2 d-flex justify-content-between">
 									<div class="user-profile d-flex">
 										<div class="circle-img">
@@ -113,17 +113,17 @@
 			<main>
 				<div class="main-header d-flex justify-content-between">
 					<!-- da cambiare al click dell'user voluto -->
-					<div class="user-profile-chosen d-flex align-items-center">
+					<div class="user-profile-chosen d-flex align-items-center" v-if="activeUser >= 0">
 						<div class="circle-img">
-							<img src="./img/avatar_1.jpg" alt="" class="img-fluid">
+							<img :src="'./img/avatar' + contacts[activeUser].avatar + '.jpg'" alt="" class="img-fluid">
 						</div>
 						<div class="user-chosen-text">
-							<div class="name">Michele</div>
+							<div class="name" >{{contacts[activeUser].name}}</div>
 							<div class="last-access">Ultimo accesso oggi alle 12:00</div>
 						</div>
 					</div>
 
-					<div class="user-chosen-commands d-flex align-items-center">
+					<div class="user-chosen-commands d-flex align-items-center" v-if="activeUser >= 0">
 						<a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
 						<a href=""><i class="fa-solid fa-paperclip"></i></a>
 						<a href=""><i class="fa-solid fa-ellipsis-vertical"></i></a>
@@ -132,19 +132,12 @@
 
 				<div class="main-content ">
 					<!-- mostrare in base al user scelto -->
-					<ul class="message-list d-flex flex-column p-3">
-						<li class="message-box sent">
-							<div class="text">Hai portato a spasso il cane?</div>
+					<ul class="message-list d-flex flex-column p-3" v-if="activeUser >= 0">
+						<li class="message-box " v-for="message in contacts[activeUser].messages" :class="message.status">
+							<div class="text">{{message.message}}</div>
 							<div class="time">15:30</div>
 						</li>
-						<li class="message-box sent">
-							<div class="text">Ricordati di stendere i panni</div>
-							<div class="time">15:50</div>
-						</li>
-						<li class="message-box received">
-							<div class="text">Tutto fatto!</div>
-							<div class="time">16:15</div>
-						</li>
+						
 						
 
 					</ul>
