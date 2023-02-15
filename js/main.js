@@ -12,13 +12,21 @@
 
 // // ** ● Click sul contatto mostra la conversazione del contatto cliccato
 
-// TODO Milestone 3
-// ** ● Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando
-// ** “enter” il testo viene aggiunto al thread sopra, come messaggio verde
+// // TODO Milestone 3
+// // ** ● Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando
+// // ** “enter” il testo viene aggiunto al thread sopra, come messaggio verde
 
-// ** ● Risposta dall’interlocutore: 
-// ** ad ogni inserimento di un messaggio, l’utente riceverà
-// ** un “ok” come risposta, che apparirà dopo 1 secondo.
+// // ** ● Risposta dall’interlocutore: 
+// // ** ad ogni inserimento di un messaggio, l’utente riceverà
+// // ** un “ok” come risposta, che apparirà dopo 1 secondo.
+
+
+// TODO Milestone 4
+// **● Ricerca utenti: 
+// **scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i
+// ** contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo
+// **“mar” rimangono solo Marco e Martina)
+
 
 const app = Vue.createApp({
   data() {
@@ -189,6 +197,7 @@ const app = Vue.createApp({
       activeUser: -1,
       indexUserResponse: -1,
       newMessage: "",
+      searchUser: "",
     };
   },
 
@@ -216,6 +225,16 @@ const app = Vue.createApp({
           };
           this.contacts[this.indexUserResponse].messages.push(messageToReceive);
         }, 1000)
+     },
+
+     visibleUser(searchUser){
+      const newSearch = searchUser.toLowerCase();
+      for(const contact of this.contacts){
+        if(contact.name.toLowerCase(contact.name).includes(newSearch)){
+          contact.visible = true;
+        }else contact.visible = false;
+        
+      }
      }
   },
 

@@ -74,8 +74,7 @@
 					<div class="search-bar">
 						<div class="input-group flex-nowrap p-2">
 							<span class="input-group-text" id="addon-wrapping"><a href=""><i class="fa-solid fa-magnifying-glass glass"></i></a></span>
-							<input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Search"
-								aria-describedby="addon-wrapping">
+							<input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Search" aria-describedby="addon-wrapping" v-model="searchUser" @keyup="visibleUser(searchUser)">
 						</div>
 					</div>
 				</div>
@@ -86,7 +85,7 @@
 						<div class="row">
 	
 							<!-- ciclare le colonne da fare -->
-							<div class="col-12 border-bottom" v-for="(contact, index) in contacts" @click="userSelected(index)" :class="(activeUser == index) ? 'active': ''">
+							<div class="col-12 border-bottom" v-for="(contact, index) in contacts" @click="userSelected(index)" :class="(activeUser == index) ? 'active': ''" v-show="(contact.visible)">
 								<div class="flex-container pt-2 pb-2 d-flex justify-content-between">
 									<div class="user-profile d-flex">
 										<div class="circle-img">
