@@ -147,3 +147,8 @@ main{
 .message-box.received {
 	background-color: white;
 }
+
+
+.aside-profiles > .container > .row > .col-12:hover{
+	background-color: #e9ebeb;
+}
