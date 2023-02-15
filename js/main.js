@@ -21,11 +21,19 @@
 // // ** un “ok” come risposta, che apparirà dopo 1 secondo.
 
 
-// TODO Milestone 4
-// **● Ricerca utenti: 
-// **scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i
-// ** contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo
-// **“mar” rimangono solo Marco e Martina)
+// // TODO Milestone 4
+// // **● Ricerca utenti: 
+// // **scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i
+// // ** contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo
+// // **“mar” rimangono solo Marco e Martina)
+
+// TODO Milestone 5 - opzionale
+// ** ● Cancella messaggio: 
+// **cliccando sul messaggio appare un menu a tendina che
+// ** permette di cancellare il messaggio selezionato
+
+// TODO USARE LIBRERIA LUXON
+// ** ● Visualizzazione ora e ultimo messaggio inviato/ricevuto nella lista dei contatti
 
 
 const app = Vue.createApp({
@@ -41,16 +49,19 @@ const app = Vue.createApp({
               date: "10/01/2020 15:30:55",
               message: "Hai portato a spasso il cane?",
               status: "sent",
+              dropdown: false,
             },
             {
               date: "10/01/2020 15:50:00",
               message: "Ricordati di stendere i panni",
               status: "sent",
+              dropdown: false,
             },
             {
               date: "10/01/2020 16:15:22",
               message: "Tutto fatto!",
               status: "received",
+              dropdown: false,
             },
           ],
         },
@@ -63,16 +74,19 @@ const app = Vue.createApp({
               date: "20/03/2020 16:30:00",
               message: "Ciao come stai?",
               status: "sent",
+              dropdown: false,
             },
             {
               date: "20/03/2020 16:30:55",
               message: "Bene grazie! Stasera ci vediamo?",
               status: "received",
+              dropdown: false,
             },
             {
               date: "20/03/2020 16:35:00",
               message: "Mi piacerebbe ma devo andare a fare la spesa.",
               status: "sent",
+              dropdown: false,
             },
           ],
         },
@@ -85,16 +99,19 @@ const app = Vue.createApp({
               date: "28/03/2020 10:10:40",
               message: "La Marianna va in campagna",
               status: "received",
+              dropdown: false,
             },
             {
               date: "28/03/2020 10:20:10",
               message: "Sicuro di non aver sbagliato chat?",
               status: "sent",
+              dropdown: false,
             },
             {
               date: "28/03/2020 16:15:22",
               message: "Ah scusa!",
               status: "received",
+              dropdown: false,
             },
           ],
         },
@@ -107,11 +124,13 @@ const app = Vue.createApp({
               date: "10/01/2020 15:30:55",
               message: "Lo sai che ha aperto una nuova pizzeria?",
               status: "sent",
+              dropdown: false,
             },
             {
               date: "10/01/2020 15:50:00",
               message: "Si, ma preferirei andare al cinema",
               status: "received",
+              dropdown: false,
             },
           ],
         },
@@ -124,11 +143,13 @@ const app = Vue.createApp({
               date: "10/01/2020 15:30:55",
               message: "Ricordati di chiamare la nonna",
               status: "sent",
+              dropdown: false,
             },
             {
               date: "10/01/2020 15:50:00",
               message: "Va bene, stasera la sento",
               status: "received",
+              dropdown: false,
             },
           ],
         },
@@ -141,16 +162,19 @@ const app = Vue.createApp({
               date: "10/01/2020 15:30:55",
               message: "Ciao Claudia, hai novità?",
               status: "sent",
+              dropdown: false,
             },
             {
               date: "10/01/2020 15:50:00",
               message: "Non ancora",
               status: "received",
+              dropdown: false,
             },
             {
               date: "10/01/2020 15:51:00",
               message: "Nessuna nuova, buona nuova",
               status: "sent",
+              dropdown: false,
             },
           ],
         },
@@ -163,11 +187,13 @@ const app = Vue.createApp({
               date: "10/01/2020 15:30:55",
               message: "Fai gli auguri a Martina che è il suo compleanno!",
               status: "sent",
+              dropdown: false,
             },
             {
               date: "10/01/2020 15:50:00",
               message: "Grazie per avermelo ricordato, le scrivo subito!",
               status: "received",
+              dropdown: false,
             },
           ],
         },
@@ -180,16 +206,19 @@ const app = Vue.createApp({
               date: "10/01/2020 15:30:55",
               message: "Ciao, andiamo a mangiare la pizza stasera?",
               status: "received",
+              dropdown: false,
             },
             {
               date: "10/01/2020 15:50:00",
               message: "No, l'ho già mangiata ieri, ordiniamo sushi!",
               status: "sent",
+              dropdown: false,
             },
             {
               date: "10/01/2020 15:51:00",
               message: "OK!!",
               status: "received",
+              dropdown: false,
             },
           ],
         },
@@ -198,6 +227,7 @@ const app = Vue.createApp({
       indexUserResponse: -1,
       newMessage: "",
       searchUser: "",
+      
     };
   },
 
@@ -209,7 +239,8 @@ const app = Vue.createApp({
       const messageToSend = {
         date: "12:00",
         message: input,
-        status: "sent" 
+        status: "sent",
+        dropdown: false
       };
       this.contacts[this.activeUser].messages.push(messageToSend);
       this.indexUserResponse = this.activeUser;
@@ -221,7 +252,8 @@ const app = Vue.createApp({
           const messageToReceive = {
             date: "12:00",
             message: "Ok",
-            status: "received"
+            status: "received",
+            dropdown: false,
           };
           this.contacts[this.indexUserResponse].messages.push(messageToReceive);
         }, 1000)
@@ -235,6 +267,20 @@ const app = Vue.createApp({
         }else contact.visible = false;
         
       }
+     },
+
+     
+      dropOptions(message){
+        for(const contact of this.contacts){
+          for(const mess of contact.messages){
+          mess.dropdown = false;
+          }
+        }
+        message.dropdown = !message.dropdown
+     },
+
+     dropOptionsClear(message){
+      message.dropdown = false
      }
   },
 

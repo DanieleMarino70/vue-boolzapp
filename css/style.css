@@ -14,6 +14,7 @@
 /* RESET */
 ul, ol{
 	list-style: none;
+	padding: 0;
 }
 
 /* TOOLS DEBUG */
@@ -128,10 +129,26 @@ main{
 	width: fit-content;
 	max-width: 50%;
 	padding: 10px 10px;
-	margin: 10px 0;
+	margin: 10px 30px;
 	border-radius: 8px;
 }
 
+/* DROPDOWN */
+.text-options--dropdown-menu{
+	position: absolute;
+	width: max-content;
+	background-color: white;
+	box-shadow: 1px 3px 1px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+}
+
+.text-options--dropdown-menu.sent {
+	right: 0;
+}
+.text-options--dropdown-menu li:hover{
+	background-color: #d5f9ba;
+}
+/* ------- */
 .time{
 	position: absolute;
 	font-size: 0.5rem;

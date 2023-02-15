@@ -132,8 +132,16 @@
 				<div class="main-content ">
 					<!-- mostrare in base al user scelto -->
 					<ul class="message-list d-flex flex-column p-3" v-if="activeUser >= 0">
-						<li class="message-box " v-for="message in contacts[activeUser].messages" :class="message.status">
+						<li class="message-box d-flex" v-for="(message, index) in contacts[activeUser].messages" :class="message.status">
 							<div class="text">{{message.message}}</div>
+							<div class="text-options ps-2 fs-6" @click="dropOptions(message, index)">
+								<i class="fa-solid fa-chevron-down"></i>
+								<ul class="text-options--dropdown-menu" :class="message.status" v-if="message.dropdown" @mouseleave="dropOptionsClear(message)">
+									<li class="border p-1">Message info</li>
+									<li class="border p-1" type="button">Delete message</li>
+								</ul>
+
+							</div>
 							<div class="time">15:30</div>
 						</li>
 						
