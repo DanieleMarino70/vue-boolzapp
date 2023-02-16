@@ -275,7 +275,7 @@ const app = Vue.createApp({
      },
 
      deleteMessage(index){
-      this.contacts[this.activeUser].messages.splice(index, 1);
+       this.contacts[this.activeUser].messages.splice(index, 1);
      }
   },
 
