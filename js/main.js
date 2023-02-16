@@ -236,8 +236,16 @@ const app = Vue.createApp({
       this.activeUser = index;
     },
     addMessage(input){
+      const now = luxon.DateTime.now();
+      const newDate = ((now.day <= 9) ? "0" + now.day : now.day).toString() + "/" + 
+                      ((now.month <= 9) ? "0" + now.month : now.month).toString() + "/" + 
+                      (now.year.toString()) + " " + 
+                      ((now.hour <= 9) ? "0" + now.hour : now.hour).toString() + ":" + 
+                      ((now.minute <= 9) ? '0'+now.minute : now.minute).toString() + ":" + 
+                      ((now.second <= 9) ? '0'+now.second : now.second).toString();
+      console.log(now);
       const messageToSend = {
-        date: "12:00",
+        date: newDate,
         message: input,
         status: "sent",
         dropdown: false
@@ -249,8 +257,10 @@ const app = Vue.createApp({
 
      userResponse(){
         setTimeout(() =>{
+          const now = luxon.DateTime.now();
+          const newDate = ((now.day <= 9) ? "0" + now.day : now.day).toString() + "/" + ((now.month <= 9) ? "0" + now.month : now.month).toString() + "/" + (now.year.toString()) + " " + ((now.hour <= 9) ? "0" + now.hour : now.hour).toString() + ":" + ((now.minute <= 9) ? '0'+now.minute : now.minute).toString() + ":" + ((now.second <= 9) ? '0'+now.second : now.second).toString();
           const messageToReceive = {
-            date: "12:00",
+            date: newDate,
             message: "Ok",
             status: "received",
             dropdown: false,

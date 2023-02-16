@@ -128,14 +128,21 @@ main{
 	padding: 0.6rem;
 }
 
+.last-message-date {
+	width: min-content;
+	text-align: center;
+}
+
 .message-box{
 	position: relative;
 	width: fit-content;
+	min-width: 15%;
 	max-width: 50%;
 	padding: 10px 10px;
 	margin: 10px 30px;
 	border-radius: 8px;
 }
+
 
 /* DROPDOWN */
 .text-options--dropdown-menu{
@@ -176,6 +183,7 @@ main{
 
 .message-box > .text{
 	overflow-wrap: anywhere;
+	flex-grow: 1;
 }
 
 
