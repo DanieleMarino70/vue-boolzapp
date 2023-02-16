@@ -49,6 +49,10 @@ main{
 	border-radius: 50%;
 }
 
+.cs-point{
+	cursor: pointer;
+}
+
 /* COLORS */
 .circle-img.notification {
 	background-color: aliceblue;
@@ -135,6 +139,7 @@ main{
 
 /* DROPDOWN */
 .text-options--dropdown-menu{
+	/* display: none; */
 	position: absolute;
 	width: max-content;
 	background-color: white;
@@ -142,13 +147,17 @@ main{
 	z-index: 1;
 }
 
+/* .text-options--dropdown-menu.active{
+	display: block;
+} */
+
 .text-options--dropdown-menu.sent {
 	right: 0;
 }
 .text-options--dropdown-menu li:hover{
 	background-color: #d5f9ba;
 }
-/* ------- */
+/* ----------------------- */
 .time{
 	position: absolute;
 	font-size: 0.5rem;

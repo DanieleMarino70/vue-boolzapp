@@ -27,8 +27,9 @@
 	<link rel="stylesheet" href="./css/style.css">
 
 	<!-- VUE JS -->
-	<script  src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
+	<!-- <script  src="https://unpkg.com/vue@3/dist/vue.global.js"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.global.min.js"></script>
+	
 
 	<!-- MAIN JS -->
 	<script type="text/javascript" src="./js/main.js" defer></script>
@@ -135,10 +136,10 @@
 						<li class="message-box d-flex" v-for="(message, index) in contacts[activeUser].messages" :class="message.status">
 							<div class="text">{{message.message}}</div>
 							<div class="text-options ps-2 fs-6" @click="dropOptions(message, index)">
-								<i class="fa-solid fa-chevron-down"></i>
-								<ul class="text-options--dropdown-menu" :class="message.status" v-if="message.dropdown" @mouseleave="dropOptionsClear(message)">
+								<i class="fa-solid fa-chevron-down cs-point"></i>
+								<ul class="text-options--dropdown-menu" :class="message.status" v-if="message.dropdown">
 									<li class="border p-1">Message info</li>
-									<li class="border p-1" type="button">Delete message</li>
+									<li class="border p-1" type="button" @click="deleteMessage(index)">Delete message</li>
 								</ul>
 
 							</div>

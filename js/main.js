@@ -227,7 +227,7 @@ const app = Vue.createApp({
       indexUserResponse: -1,
       newMessage: "",
       searchUser: "",
-      
+      dropdown: false,
     };
   },
 
@@ -271,16 +271,11 @@ const app = Vue.createApp({
 
      
       dropOptions(message){
-        for(const contact of this.contacts){
-          for(const mess of contact.messages){
-          mess.dropdown = false;
-          }
-        }
-        message.dropdown = !message.dropdown
+        message.dropdown = !message.dropdown;
      },
 
-     dropOptionsClear(message){
-      message.dropdown = false
+     deleteMessage(index){
+      this.contacts[this.activeUser].messages.splice(index, 1);
      }
   },
 
