@@ -49,19 +49,16 @@ const app = Vue.createApp({
               date: "10/01/2020 15:30:55",
               message: "Hai portato a spasso il cane?",
               status: "sent",
-              dropdown: false,
             },
             {
               date: "10/01/2020 15:50:00",
               message: "Ricordati di stendere i panni",
               status: "sent",
-              dropdown: false,
             },
             {
               date: "10/01/2020 16:15:22",
               message: "Tutto fatto!",
               status: "received",
-              dropdown: false,
             },
           ],
         },
@@ -74,19 +71,16 @@ const app = Vue.createApp({
               date: "20/03/2020 16:30:00",
               message: "Ciao come stai?",
               status: "sent",
-              dropdown: false,
             },
             {
               date: "20/03/2020 16:30:55",
               message: "Bene grazie! Stasera ci vediamo?",
               status: "received",
-              dropdown: false,
             },
             {
               date: "20/03/2020 16:35:00",
               message: "Mi piacerebbe ma devo andare a fare la spesa.",
               status: "sent",
-              dropdown: false,
             },
           ],
         },
@@ -99,19 +93,16 @@ const app = Vue.createApp({
               date: "28/03/2020 10:10:40",
               message: "La Marianna va in campagna",
               status: "received",
-              dropdown: false,
             },
             {
               date: "28/03/2020 10:20:10",
               message: "Sicuro di non aver sbagliato chat?",
               status: "sent",
-              dropdown: false,
             },
             {
               date: "28/03/2020 16:15:22",
               message: "Ah scusa!",
               status: "received",
-              dropdown: false,
             },
           ],
         },
@@ -124,13 +115,11 @@ const app = Vue.createApp({
               date: "10/01/2020 15:30:55",
               message: "Lo sai che ha aperto una nuova pizzeria?",
               status: "sent",
-              dropdown: false,
             },
             {
               date: "10/01/2020 15:50:00",
               message: "Si, ma preferirei andare al cinema",
               status: "received",
-              dropdown: false,
             },
           ],
         },
@@ -143,13 +132,11 @@ const app = Vue.createApp({
               date: "10/01/2020 15:30:55",
               message: "Ricordati di chiamare la nonna",
               status: "sent",
-              dropdown: false,
             },
             {
               date: "10/01/2020 15:50:00",
               message: "Va bene, stasera la sento",
               status: "received",
-              dropdown: false,
             },
           ],
         },
@@ -162,19 +149,16 @@ const app = Vue.createApp({
               date: "10/01/2020 15:30:55",
               message: "Ciao Claudia, hai novità?",
               status: "sent",
-              dropdown: false,
             },
             {
               date: "10/01/2020 15:50:00",
               message: "Non ancora",
               status: "received",
-              dropdown: false,
             },
             {
               date: "10/01/2020 15:51:00",
               message: "Nessuna nuova, buona nuova",
               status: "sent",
-              dropdown: false,
             },
           ],
         },
@@ -187,13 +171,11 @@ const app = Vue.createApp({
               date: "10/01/2020 15:30:55",
               message: "Fai gli auguri a Martina che è il suo compleanno!",
               status: "sent",
-              dropdown: false,
             },
             {
               date: "10/01/2020 15:50:00",
               message: "Grazie per avermelo ricordato, le scrivo subito!",
               status: "received",
-              dropdown: false,
             },
           ],
         },
@@ -206,19 +188,16 @@ const app = Vue.createApp({
               date: "10/01/2020 15:30:55",
               message: "Ciao, andiamo a mangiare la pizza stasera?",
               status: "received",
-              dropdown: false,
             },
             {
               date: "10/01/2020 15:50:00",
               message: "No, l'ho già mangiata ieri, ordiniamo sushi!",
               status: "sent",
-              dropdown: false,
             },
             {
               date: "10/01/2020 15:51:00",
               message: "OK!!",
               status: "received",
-              dropdown: false,
             },
           ],
         },
@@ -227,7 +206,11 @@ const app = Vue.createApp({
       indexUserResponse: -1,
       newMessage: "",
       searchUser: "",
-      dropdown: false,
+
+      dropdown: {
+        index: 0,
+        open: false,
+      },
     };
   },
 
@@ -248,7 +231,6 @@ const app = Vue.createApp({
         date: newDate,
         message: input,
         status: "sent",
-        dropdown: false
       };
       this.contacts[this.activeUser].messages.push(messageToSend);
       this.indexUserResponse = this.activeUser;
@@ -263,7 +245,6 @@ const app = Vue.createApp({
             date: newDate,
             message: "Ok",
             status: "received",
-            dropdown: false,
           };
           this.contacts[this.indexUserResponse].messages.push(messageToReceive);
         }, 1000)
@@ -280,13 +261,18 @@ const app = Vue.createApp({
      },
 
      
-      dropOptions(message){
-        message.dropdown = !message.dropdown;
+      dropOptions(clickedMessageIndex){
+        if(clickedMessageIndex == this.dropdown.index){
+          this.dropdown.open = !this.dropdown.open
+        }else{
+          this.dropdown.index = clickedMessageIndex;
+          this.dropdown.open = true;
+        }
      },
 
-     deleteMessage(index){
-       this.contacts[this.activeUser].messages[index].dropdown = false;
-       this.contacts[this.activeUser].messages.splice(index, 1);
+     deleteMessage(clickedMessageIndex){
+       this.dropdown.open = false;
+       this.contacts[this.activeUser].messages.splice(clickedMessageIndex, 1);
      }
   },
 

@@ -139,8 +139,8 @@
 						<li class="message-box d-flex" v-for="(message, index) in contacts[activeUser].messages" :class="message.status">
 							<div class="text">{{message.message}}</div>
 							<div class="text-options ps-2 fs-6" >
-								<i class="fa-solid fa-chevron-down cs-point" @click="dropOptions(message, index)"></i>
-								<ul class="text-options--dropdown-menu" :class="message.status" v-if="message.dropdown">
+								<i class="fa-solid fa-chevron-down cs-point" @click="dropOptions(index)"></i>
+								<ul class="text-options--dropdown-menu" :class="message.status" v-if="dropdown.open && dropdown.index == index">
 									<li class="border p-1">Message info</li>
 									<li class="border p-1" type="button" @click="deleteMessage(index)">Delete message</li>
 								</ul>
